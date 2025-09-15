@@ -1,0 +1,36 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    always_declare_return_types: true
+    always_put_control_body_on_new_line: true
+    always_put_required_named_parameters_first: true
+    avoid_dynamic_calls: true
+    avoid_escaping_inner_quotes: true
+    avoid_function_literals_in_foreach_calls: false
+    avoid_multiple_declarations_per_line: true
+    avoid_positional_boolean_parameters: true
+    avoid_print: true
+    avoid_redundant_argument_values: true
+    avoid_types_on_closure_parameters: true
+    avoid_unused_constructor_parameters: true
+    avoid_void_async: true
+    constant_identifier_names: false
+    directives_ordering: true
+    lines_longer_than_80_chars: false # (preferred 120)
+    no_leading_underscores_for_local_identifiers: true
+    prefer_double_quotes: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_if_elements_to_conditional_expressions: true
+    prefer_interpolation_to_compose_strings: true
+    prefer_null_aware_method_calls: true
+    require_trailing_commas: true
+    unnecessary_parenthesis: true
+    unnecessary_statements: true
+    unrelated_type_equality_checks: true
+    valid_regexps: true
+
+    public_member_api_docs: true
+    comment_references: true
+    prefer_relative_imports: true

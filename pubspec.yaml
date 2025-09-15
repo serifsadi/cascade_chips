@@ -1,0 +1,22 @@
+name: cascade_chips
+description: "A stylish and animated chip component for filtering and navigating through hierarchical data."
+version: 0.0.1
+homepage: https://github.com/serifsadi/cascade_chips
+repository: https://github.com/serifsadi/cascade_chips
+issue_tracker: https://github.com/serifsadi/cascade_chips/issues
+license: MIT
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
