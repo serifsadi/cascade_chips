@@ -1,4 +1,4 @@
-## 1.0.0 - 2025-09-12
+## 0.0.1 - 2025-09-15
 
 * **Initial release** of the `cascade_chips` package.
 * Provides an animated, chip-based filter for hierarchical data structures.
