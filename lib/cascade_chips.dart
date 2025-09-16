@@ -84,27 +84,30 @@ class _CascadeChipsState extends State<CascadeChips> {
     final appTheme = Theme.of(context);
     final customTheme = widget.theme;
 
-    return ActionChip(
-      key: const ValueKey("clear_chip"),
-      label: Icon(
-        Icons.close,
-        size: 16.0,
-        color: customTheme?.clearChipForegroundColor ?? appTheme.colorScheme.onSecondaryContainer,
+    return Padding(
+      padding: EdgeInsets.only(right: widget.theme?.chipSpacing ?? 8.0),
+      child: ActionChip(
+        key: const ValueKey("clear_chip"),
+        label: Icon(
+          Icons.close,
+          size: 16.0,
+          color: customTheme?.clearChipForegroundColor ?? appTheme.colorScheme.onSecondaryContainer,
+        ),
+        labelStyle: const TextStyle(fontSize: 14.0),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        padding: const EdgeInsets.all(0),
+        labelPadding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
+        shape: const CircleBorder(),
+        side: BorderSide(
+          color: customTheme?.clearChipBorderColor ?? appTheme.colorScheme.outlineVariant,
+        ),
+        backgroundColor: customTheme?.clearChipBackgroundColor ?? appTheme.colorScheme.surface,
+        visualDensity: VisualDensity.compact,
+        onPressed: () {
+          setState(() => _activeFilters.clear());
+          widget.onFilterChanged(_activeFilters);
+        },
       ),
-      labelStyle: const TextStyle(fontSize: 14.0),
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      padding: const EdgeInsets.all(0),
-      labelPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-      shape: const CircleBorder(),
-      side: BorderSide(
-        color: customTheme?.clearChipBorderColor ?? appTheme.colorScheme.outlineVariant,
-      ),
-      backgroundColor: customTheme?.clearChipBackgroundColor ?? appTheme.colorScheme.surface,
-      visualDensity: VisualDensity.compact,
-      onPressed: () {
-        setState(() => _activeFilters.clear());
-        widget.onFilterChanged(_activeFilters);
-      },
     );
   }
 
@@ -229,7 +232,6 @@ class _CascadeChipsState extends State<CascadeChips> {
       width: double.infinity,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.all(12.0),
         child: Row(
           children: chipWidgets.asMap().entries.map(
             (entry) {
