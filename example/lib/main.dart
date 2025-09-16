@@ -1,5 +1,6 @@
 import 'package:cascade_chips/cascade_chips.dart';
 import 'package:cascade_chips/cascade_node.dart';
+import 'package:cascade_chips/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -137,31 +138,34 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Column(
           children: [
-            CascadeChips(
-              nodes: _rootCategories,
-              initialPathIds: myInitialFilterIds,
-              onFilterChanged: (activeFilters) {
-                _fetchTransactions(activeFilters);
-              },
-              // --- OPTIONAL THEME CUSTOMIZATION EXAMPLE ---
-              // Uncomment the theme below to see a custom style.
-              /*
-              theme: CascadeChipTheme(
-                primaryPathBackgroundColor: Colors.teal.shade800,
-                primaryPathForegroundColor: Colors.white,
-                secondaryPathBackgroundColor: Colors.teal.shade100,
-                secondaryPathForegroundColor: Colors.teal.shade900,
-                optionChipBackgroundColor: Colors.teal.shade50,
-                optionChipBorderColor: Colors.teal.shade200,
-                clearChipBackgroundColor: Colors.grey.shade200,
-                clearChipForegroundColor: Colors.grey.shade700,
-                clearChipBorderColor: Colors.grey.shade300,
-                fontSize: 14.0,
-                chipBorderRadius: BorderRadius.circular(20.0), // Pill-shape
-                chipPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                chipSpacing: 10.0,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: CascadeChips(
+                nodes: _rootCategories,
+                initialPathIds: myInitialFilterIds,
+                onFilterChanged: (activeFilters) {
+                  _fetchTransactions(activeFilters);
+                },
+                // --- OPTIONAL THEME CUSTOMIZATION EXAMPLE ---
+                // Uncomment the theme below to see a custom style.
+                /*
+                theme: CascadeChipTheme(
+                  primaryPathBackgroundColor: Colors.teal.shade800,
+                  primaryPathForegroundColor: Colors.white,
+                  secondaryPathBackgroundColor: Colors.teal.shade100,
+                  secondaryPathForegroundColor: Colors.teal.shade900,
+                  optionChipBackgroundColor: Colors.teal.shade50,
+                  optionChipBorderColor: Colors.teal.shade200,
+                  clearChipBackgroundColor: Colors.grey.shade200,
+                  clearChipForegroundColor: Colors.grey.shade700,
+                  clearChipBorderColor: Colors.grey.shade300,
+                  fontSize: 14.0,
+                  chipBorderRadius: BorderRadius.circular(20.0), // Pill-shape
+                  chipPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  chipSpacing: 10.0,
+                ),
+                */
               ),
-              */
             ),
             const Divider(height: 1),
             Expanded(child: _buildContentArea()),
