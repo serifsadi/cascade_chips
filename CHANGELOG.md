@@ -1,3 +1,7 @@
+## 0.0.2 - 2025-09-16
+
+* **FIXED:** Corrected a layout bug where the clear chip would have no spacing with the first path chip.
+
 ## 0.0.1 - 2025-09-15
 
 * **Initial release** of the `cascade_chips` package.
