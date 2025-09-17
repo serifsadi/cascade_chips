@@ -8,8 +8,9 @@
 
 A stylish and animated chip-based filter widget for navigating and selecting from hierarchical data structures in Flutter.
 
-![DEMO GIF HERE](https://raw.githubusercontent.com/serifsadi/cascade_chips/main/demo.gif)
-*(Please replace this with an actual animated GIF of your widget in action!)*
+<p align="center">
+  <img src="https://raw.githubusercontent.com/serifsadi/cascade_chips/main/docs/images/demo.gif" alt="A demo showing the animated filtering capabilities of Cascade Chips" width="424">
+</p>
 
 `cascade_chips` provides a user-friendly and visually appealing way for users to drill down through nested categories, making complex filtering tasks intuitive and elegant. Ideal for e-commerce category selection, document organization, or any application requiring multi-level filtering.
 
