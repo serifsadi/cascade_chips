@@ -73,7 +73,9 @@ class _CascadeChipsState extends State<CascadeChips> {
         currentLevelNodes = foundNode.children;
       } else {
         if (kDebugMode) {
-          print("Warning: CascadeChips could not find a node with ID '$idToFind'.");
+          print(
+            "Warning: CascadeChips could not find a node with ID '$idToFind'.",
+          );
         }
         break;
       }
@@ -84,30 +86,30 @@ class _CascadeChipsState extends State<CascadeChips> {
     final appTheme = Theme.of(context);
     final customTheme = widget.theme;
 
-    return Padding(
-      padding: EdgeInsets.only(right: widget.theme?.chipSpacing ?? 8.0),
-      child: ActionChip(
-        key: const ValueKey("clear_chip"),
-        label: Icon(
-          Icons.close,
-          size: 16.0,
-          color: customTheme?.clearChipForegroundColor ?? appTheme.colorScheme.onSecondaryContainer,
-        ),
-        labelStyle: const TextStyle(fontSize: 14.0),
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        padding: const EdgeInsets.all(0),
-        labelPadding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
-        shape: const CircleBorder(),
-        side: BorderSide(
-          color: customTheme?.clearChipBorderColor ?? appTheme.colorScheme.outlineVariant,
-        ),
-        backgroundColor: customTheme?.clearChipBackgroundColor ?? appTheme.colorScheme.surface,
-        visualDensity: VisualDensity.compact,
-        onPressed: () {
-          setState(() => _activeFilters.clear());
-          widget.onFilterChanged(_activeFilters);
-        },
+    return ActionChip(
+      key: const ValueKey("clear_chip"),
+      label: Icon(
+        Icons.close,
+        size: 16.0,
+        color: customTheme?.clearChipForegroundColor ??
+            appTheme.colorScheme.onSecondaryContainer,
       ),
+      labelStyle: const TextStyle(fontSize: 14.0),
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      padding: const EdgeInsets.all(0),
+      labelPadding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
+      shape: const CircleBorder(),
+      side: BorderSide(
+        color: customTheme?.clearChipBorderColor ??
+            appTheme.colorScheme.outlineVariant,
+      ),
+      backgroundColor:
+          customTheme?.clearChipBackgroundColor ?? appTheme.colorScheme.surface,
+      visualDensity: VisualDensity.compact,
+      onPressed: () {
+        setState(() => _activeFilters.clear());
+        widget.onFilterChanged(_activeFilters);
+      },
     );
   }
 
@@ -120,7 +122,8 @@ class _CascadeChipsState extends State<CascadeChips> {
         final index = entry.key;
         final node = entry.value;
 
-        final BorderRadius baseRadius = customTheme?.chipBorderRadius ?? const BorderRadius.all(Radius.circular(8.0));
+        final BorderRadius baseRadius = customTheme?.chipBorderRadius ??
+            const BorderRadius.all(Radius.circular(8.0));
 
         final bool isFirst = index == 0;
         final bool isLast = index == _activeFilters.length - 1;
@@ -142,15 +145,20 @@ class _CascadeChipsState extends State<CascadeChips> {
           chipSpecificRadius = BorderRadius.zero;
         }
 
-        final OutlinedBorder shape = RoundedRectangleBorder(borderRadius: chipSpecificRadius);
+        final OutlinedBorder shape =
+            RoundedRectangleBorder(borderRadius: chipSpecificRadius);
 
         final Color backgroundColor = isFirst
-            ? customTheme?.primaryPathBackgroundColor ?? appTheme.colorScheme.primary
-            : customTheme?.secondaryPathBackgroundColor ?? appTheme.colorScheme.primaryContainer;
+            ? customTheme?.primaryPathBackgroundColor ??
+                appTheme.colorScheme.primary
+            : customTheme?.secondaryPathBackgroundColor ??
+                appTheme.colorScheme.primaryContainer;
 
         final Color labelColor = isFirst
-            ? customTheme?.primaryPathForegroundColor ?? appTheme.colorScheme.onPrimary
-            : customTheme?.secondaryPathForegroundColor ?? appTheme.colorScheme.primary;
+            ? customTheme?.primaryPathForegroundColor ??
+                appTheme.colorScheme.onPrimary
+            : customTheme?.secondaryPathForegroundColor ??
+                appTheme.colorScheme.primary;
 
         return ChoiceChip(
           key: ValueKey("path_chip_${node.id}"),
@@ -165,7 +173,8 @@ class _CascadeChipsState extends State<CascadeChips> {
           ),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           padding: const EdgeInsets.all(0),
-          labelPadding: customTheme?.chipPadding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+          labelPadding: customTheme?.chipPadding ??
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
           showCheckmark: false,
           selected: true,
           onSelected: (_) {
@@ -182,7 +191,8 @@ class _CascadeChipsState extends State<CascadeChips> {
   List<Widget> _buildOptionChips() {
     final appTheme = Theme.of(context);
     final customTheme = widget.theme;
-    final List<CascadeNode> currentOptions = _activeFilters.isEmpty ? widget.nodes : _activeFilters.last.children;
+    final List<CascadeNode> currentOptions =
+        _activeFilters.isEmpty ? widget.nodes : _activeFilters.last.children;
 
     return currentOptions.map(
       (category) {
@@ -191,19 +201,25 @@ class _CascadeChipsState extends State<CascadeChips> {
           label: Text(category.label),
           visualDensity: VisualDensity.compact,
           labelStyle: TextStyle(
-            color: customTheme?.secondaryPathForegroundColor ?? appTheme.colorScheme.primary,
+            color: customTheme?.secondaryPathForegroundColor ??
+                appTheme.colorScheme.primary,
             fontSize: customTheme?.fontSize ?? 14.0,
           ),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           padding: const EdgeInsets.all(0),
-          labelPadding: customTheme?.chipPadding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+          labelPadding: customTheme?.chipPadding ??
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
           shape: customTheme?.chipBorderRadius != null
-              ? RoundedRectangleBorder(borderRadius: customTheme!.chipBorderRadius!)
+              ? RoundedRectangleBorder(
+                  borderRadius: customTheme!.chipBorderRadius!,
+                )
               : null,
           side: BorderSide(
-            color: customTheme?.optionChipBorderColor ?? appTheme.colorScheme.outlineVariant,
+            color: customTheme?.optionChipBorderColor ??
+                appTheme.colorScheme.outlineVariant,
           ),
-          backgroundColor: customTheme?.optionChipBackgroundColor ?? appTheme.colorScheme.surface,
+          backgroundColor: customTheme?.optionChipBackgroundColor ??
+              appTheme.colorScheme.surface,
           showCheckmark: false,
           selected: false,
           onSelected: (_) {
@@ -238,7 +254,6 @@ class _CascadeChipsState extends State<CascadeChips> {
               final index = entry.key;
               final chipWidget = entry.value;
 
-              final bool isClearChip = _activeFilters.isNotEmpty && index == 0;
               final bool isPathChip = index > 0 && index <= pathChips.length;
               final bool isLastPathChip = index == pathChips.length;
 
@@ -247,7 +262,9 @@ class _CascadeChipsState extends State<CascadeChips> {
                 curve: Curves.easeInOut,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    right: isClearChip || isPathChip && !isLastPathChip ? 0 : (widget.theme?.chipSpacing ?? 8.0),
+                    right: isPathChip && !isLastPathChip
+                        ? 0
+                        : (widget.theme?.chipSpacing ?? 8.0),
                   ),
                   child: chipWidget,
                 ),
