@@ -28,30 +28,25 @@ class CascadeChipTheme {
   final Color? secondaryPathForegroundColor;
 
   /// The background color for the unselected option chips.
-  /// The background color for the unselected option chips.
   ///
   /// Defaults to `Theme.of(context).colorScheme.surface`.
   final Color? optionChipBackgroundColor;
 
-  /// The border color for the unselected option chips.
   /// The border color for the unselected option chips.
   ///
   /// Defaults to `Theme.of(context).colorScheme.outlineVariant`.
   final Color? optionChipBorderColor;
 
   /// The font size for all chip labels.
-  /// The font size for all chip labels.
   ///
   /// Defaults to `14.0`.
   final double? fontSize;
 
   /// The background color for the 'clear all' chip.
-  /// The background color for the 'clear all' chip.
   ///
   /// Defaults to `Theme.of(context).colorScheme.secondaryContainer`.
   final Color? clearChipBackgroundColor;
 
-  /// The color of the icon on the 'clear all' chip.
   /// The color of the icon on the 'clear all' chip.
   ///
   /// Defaults to `Theme.of(context).colorScheme.onSecondaryContainer`.
